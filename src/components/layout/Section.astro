@@ -1,0 +1,17 @@
+---
+import Container from "./Container.astro";
+import type { Era } from "../../types";
+
+interface Props {
+  class?: string;
+  era?: Era;
+}
+
+const { era, class: className } = Astro.props;
+---
+
+<section class:list={["relative py-24 bg-base text-content", className]}>
+  <Container>
+    <slot />
+  </Container>
+</section>

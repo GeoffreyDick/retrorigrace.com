@@ -1,15 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import Section from "../../components/layout/Section.astro";
 
 export async function getStaticPaths() {
-  const races = await getCollection('races');
-  return races.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const races = await getCollection("races");
+  return races.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-<h1>{entry.data.name}</h1>
-<Content />
+
+<Section class="nineteeneighties">
+  <h1>{entry.data.name}</h1>
+  <Content />
+</Section>
