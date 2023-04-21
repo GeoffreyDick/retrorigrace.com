@@ -35,8 +35,8 @@ export default defineConfig<Theme>({
         modern: {},
         twentyoughts: {
           colors: {
-            "base-100": "#33b1e5",
-            "base-content": "#2d52a4",
+            base: "#33b1e5",
+            content: "#2d52a4",
             primary: "#33b1e5",
             secondary: "#33b1e5",
             accent: "#33b1e5",
@@ -44,14 +44,22 @@ export default defineConfig<Theme>({
         },
         nineteennineties: {
           colors: {
-            "base-100": "#ffffff",
-            "base-content": "#000000",
+            base: "#ffffff",
+            content: "#000000",
             primary: "#8f7ee6",
             secondary: "#f0d133",
             accent: "#edb4da",
           },
         },
-        nineteeneighties: {},
+        nineteeneighties: {
+          colors: {
+            base: "#000000",
+            content: "#ffffff",
+            primary: "#f0d133",
+            secondary: "#8f7ee6",
+            accent: "#edb4da",
+          },
+        },
         nineteenseventies: {},
         nineteessixties: {},
       },
