@@ -10,6 +10,36 @@ const racesCollection = defineCollection({
         .object({
           name: z.string(),
           age: z.number().int().positive(),
+          categories: z.array(
+            z.enum([
+              // Depart
+              "Grand Depart",
+              "ITT",
+
+              // Gender
+              "Men",
+              "Women",
+              "Non-Binary",
+
+              // Gearing
+              "Geared",
+              "Singlespeed",
+
+              // Era
+              "1900s",
+              "1910s",
+              "1920s",
+              "1930s",
+              "1940s",
+              "1950s",
+              "1960s",
+              "1970s",
+              "1980s",
+              "1990s",
+              "2000s",
+              "Modern",
+            ])
+          ),
           rig: z.object({
             year: z.number().int().positive(),
             make: z.string(),
