@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Section from "../../components/layout/Section.astro";
+import Section from "@components/layout/Section.astro";
 
 export async function getStaticPaths() {
   const races = await getCollection("races");
