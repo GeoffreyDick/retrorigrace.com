@@ -8,6 +8,35 @@ import {
 } from "unocss";
 import presetTheme from "unocss-preset-theme";
 import type { Theme } from "unocss/preset-uno";
+import type { WebFontsOptions } from "unocss/preset-web-fonts";
+
+const fonts: WebFontsOptions["fonts"] = {
+  "1990s": [{
+    name: "Lilita One",
+    weights: ["400"],
+  }],
+  "1980s": [{
+    name: "Teko",
+    weights: ["700"],
+  }],
+};
+
+/**
+ * This is a custom fetch function that will request only the necessary characters.
+ * Good, but can be improved.
+ * @param url {String} - The url to fetch
+ * @returns {Promise<string>} The response text
+ */
+async function customFetch(url: string): Promise<string> {
+  if (fonts !== undefined) {
+    const keys: string[] = Object.keys(fonts);
+    const allChars = keys.join("");
+    const uniqueChars = [...new Set(allChars)].join("");
+    return fetch(url + `&text=${uniqueChars}`).then((res) => res.text());
+  } else {
+    return fetch(url).then((res) => res.text());
+  }
+}
 
 export default defineConfig<Theme>({
   theme: {
@@ -27,7 +56,9 @@ export default defineConfig<Theme>({
 
     // https://unocss.dev/presets/web-fonts
     presetWebFonts({
-      provider: "bunny",
+      provider: "google",
+      customFetch: (url: string) => customFetch(url),
+      fonts,
     }),
 
     presetTheme<Theme>({
@@ -52,8 +83,11 @@ export default defineConfig<Theme>({
           },
         },
         nineteeneighties: {
+          fontFamily: {
+            sans: "1980s",
+          },
           colors: {
-            base: "#000000",
+            base: "#140627",
             content: "#ffffff",
             primary: "#f0d133",
             secondary: "#8f7ee6",

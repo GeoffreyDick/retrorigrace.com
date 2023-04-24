@@ -1,0 +1,96 @@
+<div class="relative flex flex-col justify-center p-12">
+	<h2 class="font-1990s text-8xl text-center leading-none tracking-widest">
+		<span -translate-y="1" data-text="1" before="bg-primary">1</span><span
+			translate-y="1"
+			before="bg-secondary"
+			data-text="9">9</span
+		><span before="bg-accent" data-text="9">9</span><span -translate-y="2" before="bg-primary" data-text="0">0</span
+		><span before="bg-secondary" data-text="s">s</span>
+	</h2>
+	<div class="absolute top-0 right-0 bottom-0 left-0 flex flex-col justify-center items-center">
+		<div
+			h="full"
+			bg="black"
+			-z="10"
+			class="aspect-[10/6]"
+			style="transform: scale(1); clip-path: polygon(0% 5%,100% 0%,94% 100%,5% 95%);"
+		>
+		</div>
+	</div>
+</div>
+
+<style>
+	h2 span {
+		display: inline-block;
+		position: relative;
+	}
+
+	h2 span {
+		color: #fff;
+	}
+
+	/* Text Shadow */
+	h2 span::after {
+		content: attr(data-text);
+		position: absolute;
+		z-index: -1;
+		top: 0.04em;
+		left: 0.03em;
+		color: #000;
+	}
+
+	h2 span:nth-child(1)::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		transform: scale(1.1);
+		clip-path: polygon(10% 12%, 87% 5%, 97% 97%, 8% 100%);
+	}
+
+	h2 span:nth-child(2)::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		transform: scale(1.2);
+		clip-path: polygon(8% 12%, 85% 15%, 90% 94%, 17% 92%);
+	}
+
+	h2 span:nth-child(3)::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		transform: scale(1.2);
+		clip-path: polygon(7% 12%, 79% 0%, 93% 85%, 11% 92%);
+	}
+
+	h2 span:nth-child(4)::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		transform: scale(1.2);
+		clip-path: polygon(2% 17%, 89% 9%, 85% 96%, 12% 84%);
+	}
+
+	h2 span:nth-child(5)::before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		transform: scale(1.2);
+		clip-path: polygon(11% 24%, 75% 30%, 90% 90%, 7% 95%);
+	}
+</style>

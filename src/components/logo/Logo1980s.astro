@@ -1,0 +1,60 @@
+<div class="relative flex flex-col justify-center p-12">
+  <h2 class="font-1980s text-8xl text-center leading-none" data-text="1980s">1980s</h2>
+  <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full -z-10">
+    <div class="w-full h-full flex flex-col justify-center items-center">
+
+    <svg
+      version="1.1"
+      class="h-full"
+      viewBox="0 0 100 60"
+      xmlns="http://www.w3.org/2000/svg">
+      <defs>
+    <linearGradient id="triangleGradient" gradientTransform="rotate(135)">
+      <stop offset="0%" stop-color="#f4bb1e">
+        <animate attributeName="stop-color" values="#f4bb1e;#f817b5;#f4bb1e" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="40%" stop-color="#f817b5">
+        <animate attributeName="stop-color" values="#f817b5;#f4bb1e;#f817b5" dur="10s" repeatCount="indefinite" />
+      </stop>     
+    </linearGradient>
+  </defs>
+      <polygon id="triangle" points="5,5 95,20 40,55" fill="url(#triangleGradient)" stroke="#93f1fd" stroke-width="1" />
+    </svg>
+    </div>
+  </div>
+</div>
+
+<style>
+  h2 {
+    position: relative;
+  background: linear-gradient(180deg, rgba(0,223,252,1) 0%, rgba(0,223,252,1) 10%, rgba(255,255,255,1) 44%, rgba(10,48,107,1) 52%, rgba(125,169,219,1) 60%, rgba(231,21,143,1) 90%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: inline-block;
+  }
+
+  h2::before {
+    content: attr(data-text);
+    position: absolute;
+    z-index: -1;
+    text-shadow: -0.03em 0 0.05em #20bbd6, 0.03em 0 0.05em #f802d0;
+
+    -webkit-text-stroke: 0.03em #fff;
+    display: inline-block;
+  }
+
+  #triangle {
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+  from {
+    filter: drop-shadow(0 0 0.1rem rgba(255,255,255,0.5)) drop-shadow(0 0 0.1rem rgba(32,187,214, 1));
+  }
+
+  to {
+    filter: drop-shadow(0 0 0.1rem rgba(255,255,255,1)) drop-shadow(0 0 0.15rem rgba(32,187,214, 1));
+  }
+}
+  }
+</style>
